@@ -7,10 +7,10 @@ from address_book import *
 from input import *
 
 
-
 def save_data(book, filename="addressbook.pkl"):
     with open(filename, "wb") as f:
         pickle.dump(book, f)
+
 
 def load_data(filename="addressbook.pkl"):
     try:
@@ -30,6 +30,7 @@ class UserView(ABC):
     def show_commands(self):
         pass
 
+
 # Конкретний класс для консольного інтерфейсу
 class ConsoleUserView(UserView):
     def show_message(self, message: str):
@@ -46,12 +47,11 @@ class ConsoleUserView(UserView):
             "add-birthday <name> <birthday> - додати день нарождення",
             "show-birthday <name> - показати день нарождення",
             "birthdays - показать найближчі дні нарождення",
-            "close/exit - вийти"
+            "close/exit - вийти",
         ]
         print("Доступні команди:")
         for cmd in commands:
             print(f"  {cmd}")
-
 
 
 def main():
@@ -69,16 +69,16 @@ def main():
 
         elif command == "hello":
             view.show_message("How can I help you?")
-            
+
         elif command == "add":
             view.show_message(add_contact(args, book))
 
         elif command == "del":
             view.show_message(del_contact(args, book))
-            
+
         elif command == "change":
             view.show_message(change_contact(args, book))
-            
+
         elif command == "phone":
             print(show_phone(args, book))
 
@@ -87,7 +87,7 @@ def main():
 
         elif command == "add-birthday":
             view.show_message(add_birthday(args, book))
-            
+
         elif command == "show-birthday":
             view.show_message(show_birthday(args, book))
 
@@ -100,8 +100,6 @@ def main():
         else:
             view.show_message("Invalid command.")
             pass
-
-
 
 
 if __name__ == "__main__":

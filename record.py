@@ -1,5 +1,6 @@
 from base_classes import *
 
+
 class Record:
     def __init__(self, name):
         self.name = Name(name)
@@ -14,7 +15,7 @@ class Record:
             if ph.value == phone:
                 return ph
         return None
-    
+
     def remove_phone(self, phone):
         ph = self.find_phone(phone)
         if ph:
@@ -28,11 +29,9 @@ class Record:
             self.remove_phone(old_phone)
             return
         raise ValueError(f"Номер {old_phone} не знайдено.")
-    
+
     def add_birthday(self, bd):
         self.birthday = Birthday(bd)
-        
 
-                
     def __str__(self):
         return f"Contact name: {self.name.value}, phones: {'; '.join(p.value for p in self.phones)}, birthday: {self.birthday}"
