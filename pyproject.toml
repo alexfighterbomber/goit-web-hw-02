@@ -1,20 +1,18 @@
-[project]
-name = "home-assistant"
+[tool.poetry]
+name = "goit-web-hw-02"
 version = "0.1.0"
 description = ""
-authors = [
-    {name = "alexfighterbomber",email = "ssamsobi@gmail.com"}
-]
+authors = ["alexfighterbomber <ssamsobi@gmail.com>"]
 readme = "README.md"
-requires-python = "3.13.0"
-dependencies = [
-]
+packages = [{include = "goit_web_hw_02"}]
 
+[tool.poetry.dependencies]
+python = "3.13.0"
 
-[build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
-build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.group.dev.dependencies]
 black = "^24.10.0"
 
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
